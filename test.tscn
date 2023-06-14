@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xnlsqksl0kw"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_v7or0"]
+[ext_resource type="AudioStream" uid="uid://cxqurhs34pcbp" path="res://audio/music.mp3" id="2_jd34c"]
+[ext_resource type="AudioStream" uid="uid://bol5jcmh77yn5" path="res://audio/effect.mp3" id="3_bf3wd"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7or0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "VolumeControl"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainerMaster" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="LabelMaster" type="Label" parent="VBoxContainer/GridContainerMaster"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Master Volume"
+vertical_alignment = 1
+
+[node name="HSliderMaster" type="HSlider" parent="VBoxContainer/GridContainerMaster"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainerMusic" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="LabelMusic" type="Label" parent="VBoxContainer/GridContainerMusic"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="HSliderMusic" type="HSlider" parent="VBoxContainer/GridContainerMusic"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainerEffects" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="LabelEffects" type="Label" parent="VBoxContainer/GridContainerEffects"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Effects Volume"
+vertical_alignment = 1
+
+[node name="HSliderEffects" type="HSlider" parent="VBoxContainer/GridContainerEffects"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+
+[node name="VSplitContainer3" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonPlayMusic" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Play Music"
+
+[node name="VSplitContainer5" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonPlayEffect" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Play Effect"
+
+[node name="VSplitContainer4" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonSave" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jd34c")
+bus = &"Music"
+
+[node name="AudioStreamPlayerEffects" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bf3wd")
+bus = &"Effects"
